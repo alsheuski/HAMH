@@ -5,6 +5,9 @@ const clear = require('clear');
 const figlet = require('figlet');
 const files = require('./lib/files');
 const inquirer = require('./lib/inquirer');
+const parser = require('./lib/parser');
+const printer = require('./lib/printer/printer');
+const printerTargets = require('./lib/printer/targets');
 
 clear();
 
@@ -24,6 +27,28 @@ const processFile = (filename) => {
     if (!files.fileExists(filename)) {
         console.log(chalk.red(`-> ${filename} doesn\'t exists!`));
     }
+
+    const fileContent = files.fileRead(filename);
+
+    if (!fileContent) {
+        console.log(chalk.red(`-> Error with reading ${filename}`));
+        return;
+    }
+
+    const printerTargetConsole = {
+        type: printerTargets.CONSOLE
+    };
+
+    const printerTargetFile = {
+        type: printerTargets.FILE,
+        filename: `report_${filename}`
+    };
+
+    const links = parser.getAllLinkElements(fileContent);
+    printer.print(links, [printerTargetConsole, printerTargetFile]);
+
+    const buttons = parser.getAllButtonsElements(fileContent);
+    printer.print(buttons, [printerTargetConsole]);
 };
 
 const run = async () => {
