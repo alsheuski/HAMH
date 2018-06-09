@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const clear = require('clear');
 const figlet = require('figlet');
 const inquirer = require('./lib/inquirer');
-const processor = require('./lib/processors/processor');
+const processor = require('./lib/processor/processor');
 
 const beforeRun = () => {
     clear();
