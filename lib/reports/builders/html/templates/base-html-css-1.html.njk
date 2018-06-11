@@ -9,6 +9,31 @@
 </head>
 <body>
 
+<h2>Базовые критерии:</h2>
+
+<section>
+    <header>
+        <h3>
+            <a href="https://up.htmlacademy.ru/htmlcss/21/criteries#basic-2" class="open-criteria"
+               target="_blank">Б2.</a>
+
+            К страницам подключён один стилевой файл (с учётом normalize.css к каждой странице могут быть
+            подключены два стилевых файла).
+        </h3>
+    </header>
+    <div class="content">
+        {% if data.styleFiles.length > 0 %}
+            <ol>
+                {% for item in data.styleFiles %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <span class="no-items">Нет подключеных файлов стилей</span>
+        {% endif %}
+    </div>
+</section>
+
 {% if data.links %}
     <h3>Links:</h3>
     <ol>
