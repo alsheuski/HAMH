@@ -86,17 +86,17 @@
 <section>
     <header>
         <h3>
-            <a href="https://up.htmlacademy.ru/htmlcss/21/criteries#basic-6" class="open-criteria"
+            <a href="{{ data.styleFiles.meta.linkToCriteria }}" class="open-criteria"
                target="_blank">Б6.</a>
 
             Вся собственная стилизация выполнена в одном стилевом файле.
         </h3>
     </header>
     <div class="content">
-        {% if data.styleFiles.length > 0 %}
+        {% if data.styleFiles.payload.length > 0 %}
             <span>Существующие файлы стилей в проекте:</span>
             <ol>
-                {% for item in data.styleFiles %}
+                {% for item in data.styleFiles.payload %}
                     <li>
                         {{ item }}
                     </li>
