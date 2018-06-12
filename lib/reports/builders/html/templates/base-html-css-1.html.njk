@@ -49,16 +49,16 @@
 <section>
     <header>
         <h3>
-            <a href="https://up.htmlacademy.ru/htmlcss/21/criteries#basic-5" class="open-criteria"
+            <a href="{{ data.validationResult.meta.linkToCriteria }}" class="open-criteria"
                target="_blank">Б5.</a>
 
             Документ проходит проверку на валидность <a href="http://validator.w3.org/nu/" target="_blank">http://validator.w3.org/nu/</a>.
         </h3>
     </header>
     <div class="content">
-        {% if data.validationResult.length > 0 %}
+        {% if data.validationResult.payload.length > 0 %}
             <ol>
-                {% for item in data.validationResult %}
+                {% for item in data.validationResult.payload %}
                     <li>
                         <ul>
                             <li>
