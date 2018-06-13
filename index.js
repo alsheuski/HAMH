@@ -16,7 +16,7 @@ const beforeRun = () => {
     );
     console.log(
         chalk.blue(
-            'HTMLAcademy Mentor\'s Helper CLI v.0.3.3'
+            'HTMLAcademy Mentor\'s Helper CLI v.0.4.0'
         )
     );
     console.log('');
