@@ -1,0 +1,26 @@
+{% if data.styleFiles %}
+    <section>
+        <header>
+            <h3>
+                <a href="{{ data.styleFiles.meta.linkToCriteria }}" class="open-criteria"
+                   target="_blank">Б6.</a>
+
+                Вся собственная стилизация выполнена в одном стилевом файле.
+            </h3>
+        </header>
+        <div class="content">
+            {% if data.styleFiles.payload.length > 0 %}
+                <span>Существующие файлы стилей в проекте:</span>
+                <ol>
+                    {% for item in data.styleFiles.payload %}
+                        <li>
+                            {{ item }}
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <span class="no-items">Нет файлов стилей.</span>
+            {% endif %}
+        </div>
+    </section>
+{% endif %}

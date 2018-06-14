@@ -1,0 +1,31 @@
+{% if data.styleImportant %}
+    <section>
+        <header>
+            <h3>
+                <a href="{{ data.styleImportant.meta.linkToCriteria }}" class="open-criteria"
+                   target="_blank">Б8.</a>
+
+                В CSS отсутствует !important.
+            </h3>
+        </header>
+        <div class="content">
+            {% if data.styleImportant.payload.length > 0 %}
+                <span>!Important в файлах стилей:</span>
+                <ol>
+                    {% for item in data.styleImportant.payload %}
+                        <li>
+                            <div class="content">
+                                Content: "{{ item.text }}"
+                            </div>
+                            <div class="extra-info">
+                                File: {{ item.fileName }}, Line: {{ item.lineNumber }}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <span class="no-items">!Important в файлах стилей не обнаружено.</span>
+            {% endif %}
+        </div>
+    </section>
+{% endif %}

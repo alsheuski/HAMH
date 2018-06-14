@@ -1,0 +1,38 @@
+{% if data.validationResult %}
+    <section>
+        <header>
+            <h3>
+                <a href="{{ data.validationResult.meta.linkToCriteria }}" class="open-criteria"
+                   target="_blank">Б5.</a>
+
+                Документ проходит проверку на валидность <a href="http://validator.w3.org/nu/" target="_blank">http://validator.w3.org/nu/</a>.
+            </h3>
+        </header>
+        <div class="content">
+            {% if data.validationResult.payload.length > 0 %}
+                <ol>
+                    {% for item in data.validationResult.payload %}
+                        <li>
+                            <ul>
+                                <li>
+                                    Type: {{ item.type }}
+                                </li>
+                                <li>
+                                    SybType: {{ item.subType }}
+                                </li>
+                                <li>
+                                    Line: {{ item.lastLine }}
+                                </li>
+                                <li>
+                                    Message: {{ item.message }}
+                                </li>
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <span class="no-items">Разметка валидна.</span>
+            {% endif %}
+        </div>
+    </section>
+{% endif %}

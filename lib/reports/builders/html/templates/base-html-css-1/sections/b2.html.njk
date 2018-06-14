@@ -1,0 +1,24 @@
+{% if data.styleLinks %}
+    <section>
+        <header>
+            <h3>
+                <a href="{{ data.styleLinks.meta.linkToCriteria }}" class="open-criteria"
+                   target="_blank">Б2.</a>
+
+                К страницам подключён один стилевой файл (с учётом normalize.css к каждой странице могут быть
+                подключены два стилевых файла).
+            </h3>
+        </header>
+        <div class="content">
+            {% if data.styleLinks.payload.length > 0 %}
+                <ol>
+                    {% for item in data.payload %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <span class="no-items">Нет подключеных файлов стилей.</span>
+            {% endif %}
+        </div>
+    </section>
+{% endif %}
