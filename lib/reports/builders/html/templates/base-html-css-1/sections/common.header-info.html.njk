@@ -1,0 +1,11 @@
+{% if data.headerInfo %}
+    Generation date: {{ data.headerInfo.payload[0].generationDate }} <br>
+    Project info :
+    <ul>
+        {% for item in data.headerInfo.payload[0].projectInfo %}
+            <li>
+                {{ item }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
