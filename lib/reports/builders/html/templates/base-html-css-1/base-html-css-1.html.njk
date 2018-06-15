@@ -23,8 +23,12 @@
 
 <h2>Базовые критерии:</h2>
 
+<h3>Разметка</h3>
+{% include "./sections/b1.html.njk" %}
 {% include "./sections/b2.html.njk" %}
 {% include "./sections/b5.html.njk" %}
+
+<h3>Стилизация</h3>
 {% include "./sections/b6.html.njk" %}
 {% include "./sections/b8.html.njk" %}
 
@@ -32,7 +36,11 @@
     <h3>Links:</h3>
     <ol>
         {% for item in data.links %}
-            <li>{{ item }}</li>
+            <li>
+                <code>
+                   {{ item }}
+                </code>
+            </li>
         {% endfor %}
     </ol>
 {% endif %}
